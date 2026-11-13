@@ -21,7 +21,7 @@ body {
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     color: #24292f;
     margin: 20px;
-    line-height: 1.35;
+    line-height: 1.3;
     font-size: 12px;
 }
 
@@ -39,12 +39,18 @@ h1 {
 }
 
 .columns {
-    column-count: 2;
-    column-gap: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    min-width: 0;
 }
 
 .section {
     break-inside: avoid;
+    page-break-inside: avoid;
     border: 1px solid var(--border);
     border-radius: 8px;
     margin-bottom: 12px;
@@ -129,44 +135,62 @@ a {
 @media print {
 
     @page {
-        size: A4;
-        margin: 10mm;
+        size: A4 landscape;
+        margin: 5mm;
     }
 
     body {
         margin: 0;
-        font-size: 10px;
+        font-size: 8.5px;
+        line-height: 1.15;
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 13px;
     }
 
     .subtitle {
-        font-size: 11px;
-        margin-bottom: 10px;
+        font-size: 8.5px;
+        margin-bottom: 4px;
     }
 
     .columns {
-        column-count: 2;
-        column-gap: 14px;
+        display: flex;
+        gap: 8px;
     }
 
     .section {
-        margin-bottom: 8px;
+        margin-bottom: 3px;
+        border-radius: 3px;
+        border-width: 0.5px;
     }
 
     .section h2 {
-        font-size: 12px;
-        padding: 6px 10px;
+        font-size: 10px;
+        padding: 2px 7px;
     }
 
     .content {
-        padding: 8px 10px;
+        padding: 3px 7px;
+    }
+
+    ul, ol {
+        padding-left: 13px;
+        margin-top: 1px;
+        margin-bottom: 1px;
     }
 
     li {
-        margin-bottom: 2px;
+        margin-bottom: 0px;
+    }
+
+    p {
+        margin: 2px 0;
+    }
+
+    .note, .path, pre {
+        padding: 2px 5px;
+        margin: 3px 0;
     }
 }
 </style>
@@ -180,6 +204,8 @@ IETF-126 Hands-on Tutorial Cheat Sheet
 </div>
 
 <div class="columns">
+
+<div class="column">
 
 <div class="section">
 <h2>1. Create Your Draft Repository</h2>
@@ -285,6 +311,10 @@ Issues → New issue
 </div>
 </div>
 
+</div>
+
+<div class="column">
+
 <div class="section">
 <h2>5. Edit the Draft Using a Pull Request</h2>
 <div class="content">
@@ -378,6 +408,10 @@ Pull Request → Reviewers
 
 </div>
 </div>
+
+</div>
+
+<div class="column">
 
 <div class="section">
 <h2>9. Merge the Pull Request</h2>
@@ -511,4 +545,12 @@ SVG Support in kramdown-rfc
 </ul>
 
 </div>
-</div
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+
